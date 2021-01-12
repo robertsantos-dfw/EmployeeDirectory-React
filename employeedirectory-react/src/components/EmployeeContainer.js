@@ -101,7 +101,7 @@ const EmployeeContainer = () => {
           filteredUsers: results.data.results,
         });
       });
-    }, []);
+    },);
   
     return (
       <DataAreaContext.Provider
