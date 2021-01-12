@@ -77,6 +77,7 @@ const EmployeeContainer = () => {
       });
     };
   
+    // Not sure I'm doing this part correctly>>>
     const handleSearchChange = (event) => {
       const filter = event.target.value;
       const filteredList = developerState.users.filter((item) => {
@@ -91,7 +92,6 @@ const EmployeeContainer = () => {
       setDeveloperState({ ...developerState, filteredUsers: filteredList });
     };
   
-    ///https://stackoverflow.com/questions/53120972/how-to-call-loading-function-with-react-useeffect-only-once
     useEffect(() => {
       API.getUsers().then((results) => {
         console.log(results.data.results);
@@ -101,7 +101,7 @@ const EmployeeContainer = () => {
           filteredUsers: results.data.results,
         });
       });
-    },);
+    },[developerState]);
   
     return (
       <DataAreaContext.Provider
